@@ -1,5 +1,6 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
+const { url } = require('inspector');
 
 var projectName;
 var description;
@@ -7,7 +8,7 @@ var installation;
 var licenses;
 var contributors;
 var tests;
-var anyQuestions; 
+var anyQuestions;
 var documentBody;
 
 var table;
@@ -18,6 +19,8 @@ var userContributors;
 var userTests;
 var userName;
 var email;
+
+var licenseType; 
 
 // array of questions for user
 const questions = [
@@ -63,9 +66,10 @@ function init() {
                 message: questions[2],
             },
             {
-                type: 'input',
+                type: 'list',
                 name: 'licenses',
                 message: questions[3],
+                choices: ['None', 'Boost Software License', 'Apache License', 'BSD 3-Clause License', 'Eclipse Public License', 'The MIT License']
             },
             {
                 type: 'input',
@@ -92,7 +96,7 @@ function init() {
             projectName = data.projectName;
             userDescription = data.description;
             userInstallation = data.installation;
-            userLicenses = data.licenses; 
+            userLicenses = data.licenses;
             userContributors = data.contributors;
             userTests = data.tests;
             userName = data.username;
@@ -104,7 +108,31 @@ function init() {
         });
 }
 
-function createSections(){
+function writeBadge() {
+    switch (userLicenses) {
+        case "Boost Software License":
+            licenseType = "![License](/boost.svg)";
+            break; 
+        case "Apache License":
+            licenseType = url("[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)");
+            break;
+        case "BSD 3-Clause License":
+            licenseType = "";
+            break;
+        case "Eclipse Public License":
+            licenseType = "";
+            break;
+        case "The MIT License":
+            licenseType = "";
+            break;
+        default:
+            licenseType = "";
+    }
+}
+
+function createSections() {
+    //writeBadge();
+    licenseType="[![License](https://img.shields.io/badge/License-Boost%201.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)";
     table = "## Table of Contents \n *[Installation](#installation)\n *[Licenses](#licenses)\n *[contributos](#contributos)\n *[Tests](#tests)\n *[Questions](#questions)\n\n";
     description = "## Description \n " + userDescription + "\n\n";
     installation = "## Installation\n" + userInstallation + "\n\n";
@@ -113,7 +141,7 @@ function createSections(){
     tests = "## Tests\n" + userTests + "\n\n";
     anyQuestions = "## Questions\n" + "If you have any questions, find our Github page via " + userName + " or email us at " + email + "\n\n";
 
-    documentBody = "# " + projectName  + "\n\n" + description + table + installation + licenses + contributors + tests + anyQuestions;
+    documentBody = licenseType + "\n" + "# " + projectName + "\n\n" + description + table + installation + licenses + contributors + tests + anyQuestions;
 }
 
 
