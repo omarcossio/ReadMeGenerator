@@ -21,6 +21,8 @@ var userName;
 var email;
 
 var licenseType; 
+var licenseSummary;
+
 
 // array of questions for user
 const questions = [
@@ -104,26 +106,31 @@ function init() {
 
             createSections();
 
-            writeToFile("README.md", documentBody);
+            writeToFile("GeneratedREADME.md", documentBody);
         });
 }
 
 function writeBadge() {
     switch (userLicenses) {
         case "Boost Software License":
-            licenseType = "![License](/boost.svg)";
+            licenseType = "[![License](https://img.shields.io/badge/License-Boost%201.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)";
+            licenseSummary = "Boost Software License - Version 1.0"
             break; 
         case "Apache License":
-            licenseType = url("[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)");
+            licenseType = "[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)";
+            licenseSummary = "Licensed under the Apache License, Version 2.0 ";
             break;
         case "BSD 3-Clause License":
-            licenseType = "";
+            licenseType = "[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)";
+            licenseSummary = "Licensed under the BSD 3-Clause License";
             break;
         case "Eclipse Public License":
-            licenseType = "";
+            licenseType = "[![License](https://img.shields.io/badge/License-EPL%201.0-red.svg)](https://opensource.org/licenses/EPL-1.0)";
+            licenseSummary = "Licensed under Eclipse Public License, Version 1.0 (EPL-1.0)";
             break;
         case "The MIT License":
-            licenseType = "";
+            licenseType = "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)";
+            licenseSummary = "Licensed under the MIT license";
             break;
         default:
             licenseType = "";
@@ -131,12 +138,11 @@ function writeBadge() {
 }
 
 function createSections() {
-    //writeBadge();
-    licenseType="[![License](https://img.shields.io/badge/License-Boost%201.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)";
+    writeBadge();
     table = "## Table of Contents \n *[Installation](#installation)\n *[Licenses](#licenses)\n *[contributos](#contributos)\n *[Tests](#tests)\n *[Questions](#questions)\n\n";
     description = "## Description \n " + userDescription + "\n\n";
     installation = "## Installation\n" + userInstallation + "\n\n";
-    licenses = "## Licenses\n" + userLicenses + "\n\n";
+    licenses = "## Licenses\n" + userLicenses + "---" + licenseSummary + "\n\n";
     contributors = "## Contributors\n" + userContributors + "\n\n";
     tests = "## Tests\n" + userTests + "\n\n";
     anyQuestions = "## Questions\n" + "If you have any questions, find our Github page via " + userName + " or email us at " + email + "\n\n";

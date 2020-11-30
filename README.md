@@ -1,28 +1,9 @@
-[![License](https://img.shields.io/badge/License-Boost%201.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)
-# a
+# README.md Generator
+This README.md generator is an application that runs from the user's terminal. It uses a sequence of questions that allow the user to input the information needed in order for the README to display once it's generated. 
 
-## Description 
- a
-
-## Table of Contents 
- *[Installation](#installation)
- *[Licenses](#licenses)
- *[contributos](#contributos)
- *[Tests](#tests)
- *[Questions](#questions)
-
-## Installation
-a
-
-## Licenses
-Boost Software License
+## Installation 
+Cloning file from Github.
 
 ## Contributors
-a
-
-## Tests
-a
-
-## Questions
-If you have any questions, find our Github page via a or email us at a
+Omar Cossio
 
