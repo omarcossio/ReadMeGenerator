@@ -7,3 +7,6 @@ Cloning file from Github.
 ## Contributors
 Omar Cossio
 
+## Links
+[View code on Github](https://github.com/omarcossio/ReadMeGenerator)
+[View usage video]()

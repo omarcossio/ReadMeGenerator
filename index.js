@@ -32,7 +32,7 @@ const questions = [
     "What is the installation process?",
     "What are the licenses for your project?",
     "Who are the contributing members to this project?",
-    "Do you have any tests you would like to add?",
+    "What tests have you performed for your projectß?",
     "Please enter your Github user name",
     "Please enter your email address",
 
@@ -113,6 +113,7 @@ function init() {
 function writeBadge() {
     switch (userLicenses) {
         case "Boost Software License":
+            
             licenseType = "[![License](https://img.shields.io/badge/License-Boost%201.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)";
             licenseSummary = "Boost Software License - Version 1.0"
             break; 
@@ -129,6 +130,7 @@ function writeBadge() {
             licenseSummary = "Licensed under Eclipse Public License, Version 1.0 (EPL-1.0)";
             break;
         case "The MIT License":
+            //licenseType =!['License']('https://img.shields.io/badge/license-MIT-green');
             licenseType = "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)";
             licenseSummary = "Licensed under the MIT license";
             break;
@@ -139,7 +141,7 @@ function writeBadge() {
 
 function createSections() {
     writeBadge();
-    table = "## Table of Contents \n *[Installation](#installation)\n *[Licenses](#licenses)\n *[contributos](#contributos)\n *[Tests](#tests)\n *[Questions](#questions)\n\n";
+    table = "## Table of Contents \n * [Installation](#installation)\n * [Licenses](#licenses)\n * [contributos](#contributos)\n * [Tests](#tests)\n * [Questions](#questions)\n\n";
     description = "## Description \n " + userDescription + "\n\n";
     installation = "## Installation\n" + userInstallation + "\n\n";
     licenses = "## Licenses\n" + userLicenses + "---" + licenseSummary + "\n\n";
@@ -147,7 +149,7 @@ function createSections() {
     tests = "## Tests\n" + userTests + "\n\n";
     anyQuestions = "## Questions\n" + "If you have any questions, find our Github page via " + userName + " or email us at " + email + "\n\n";
 
-    documentBody = licenseType + "\n" + "# " + projectName + "\n\n" + description + table + installation + licenses + contributors + tests + anyQuestions;
+    documentBody = "# " + projectName + "\n\n" + licenseType + "\n" + description + table + installation + licenses + contributors + tests + anyQuestions;
 }
 
 
