@@ -6,6 +6,7 @@ var projectName;
 var description;
 var installation;
 var licenses;
+var usage;
 var contributors;
 var tests;
 var anyQuestions;
@@ -18,6 +19,7 @@ var userLicenses;
 var userContributors;
 var userTests;
 var userName;
+var userUsage;
 var email;
 
 var licenseType; 
@@ -31,6 +33,7 @@ const questions = [
     "Give a quick description of your project",
     "What is the installation process?",
     "What are the licenses for your project?",
+    "What usage instructions do you have for this application?",
     "Who are the contributing members to this project?",
     "What tests have you performed for your projectß?",
     "Please enter your Github user name",
@@ -75,23 +78,28 @@ function init() {
             },
             {
                 type: 'input',
-                name: 'contributors',
+                name: 'usage',
                 message: questions[4],
             },
             {
                 type: 'input',
-                name: 'tests',
+                name: 'contributors',
                 message: questions[5],
             },
             {
                 type: 'input',
-                name: 'username',
+                name: 'tests',
                 message: questions[6],
             },
             {
                 type: 'input',
-                name: 'email',
+                name: 'username',
                 message: questions[7],
+            },
+            {
+                type: 'input',
+                name: 'email',
+                message: questions[9],
             },
         ])
         .then((data) => {
@@ -99,10 +107,11 @@ function init() {
             userDescription = data.description;
             userInstallation = data.installation;
             userLicenses = data.licenses;
+            userUsage = data.usage;
             userContributors = data.contributors;
             userTests = data.tests;
-            userName = data.username;
-            email = data.email;
+            userName = "https://github.com/" + data.username;
+            email = "[" + data.email + "](mailto:" + data.email +")" ;
 
             createSections();
 
@@ -130,26 +139,27 @@ function writeBadge() {
             licenseSummary = "Licensed under Eclipse Public License, Version 1.0 (EPL-1.0)";
             break;
         case "The MIT License":
-            //licenseType =!['License']('https://img.shields.io/badge/license-MIT-green');
             licenseType = "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)";
             licenseSummary = "Licensed under the MIT license";
             break;
         default:
             licenseType = "";
+            licenseSummary = "";
     }
 }
 
 function createSections() {
     writeBadge();
-    table = "## Table of Contents \n * [Installation](#installation)\n * [Licenses](#licenses)\n * [contributos](#contributos)\n * [Tests](#tests)\n * [Questions](#questions)\n\n";
+    table = "## Table of Contents \n * [Installation](#installation)\n * [Licenses](#licenses)\n * [Contributors](#Contributors)\n * [Tests](#tests)\n * [Questions](#questions)\n\n";
     description = "## Description \n " + userDescription + "\n\n";
     installation = "## Installation\n" + userInstallation + "\n\n";
     licenses = "## Licenses\n" + userLicenses + "---" + licenseSummary + "\n\n";
+    usage = "## Usage\n" + userUsage + "\n\n";
     contributors = "## Contributors\n" + userContributors + "\n\n";
     tests = "## Tests\n" + userTests + "\n\n";
     anyQuestions = "## Questions\n" + "If you have any questions, find our Github page via " + userName + " or email us at " + email + "\n\n";
 
-    documentBody = "# " + projectName + "\n\n" + licenseType + "\n" + description + table + installation + licenses + contributors + tests + anyQuestions;
+    documentBody = "# " + projectName + "\n\n" + licenseType + "\n" + description + table + installation + usage + licenses +  contributors + tests + anyQuestions;
 }
 
 
