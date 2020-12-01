@@ -14,14 +14,16 @@ This application runs from your terminal. After cloning the repository and openi
  This will prompt user with a series of questions to help draft a markdown file personalized to the user's project, using their answers to the prompt. The markdown file is generated after user goes through all questions. The file will appear within the same folder as index.js. A visual demonstration of these instructions is found below.
 
 ## Visuals
-Video Demo <br>
-![Demo](./Assets/ReadME_Generator_Demo.gif)
+
+Video Demo
+
+![Demo](./Assets/ReadMe_Generator_Demo.gif)
 <br>
 Prompt Questions Screenshot
 ![PromtQuestions](./Assets/console_promts.png)
 <br>
-ReadMe Results Screenshot
-![ReadMe Results](./Assets/result_screenshot.png)
+ReadMe Generator Results Screenshot
+![ReadMe Results](./Assets/results_screenshot.png)
 <br>
 
 ## Licenses
@@ -31,8 +33,9 @@ None
 Omar Cossio -- Lead Developer
 
 ## Links
+* [Sample ReadMe file generated via this application](/SAMPLEGeneratedREADME.md)
 * [View code on Github](https://github.com/omarcossio/ReadMeGenerator)
-* [View usage video](https://drive.google.com/file/d/1xupXr7frZQk28c_Hz8ZpwLmzedkA4C9y/view)
+* [View usage video](https://drive.google.com/file/d/1M98VVJFkoMxpI97bbOLhx_nc_R2-pRD3/view)
 
 ## Questions
 For any questions feel free to contact me through one of the following: 

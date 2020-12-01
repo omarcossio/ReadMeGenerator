@@ -35,7 +35,7 @@ const questions = [
     "What are the licenses for your project?",
     "What usage instructions do you have for this application?",
     "Who are the contributing members to this project?",
-    "What tests have you performed for your projectß?",
+    "What tests have you performed for your project?",
     "Please enter your Github user name",
     "Please enter your email address",
 
@@ -99,7 +99,7 @@ function init() {
             {
                 type: 'input',
                 name: 'email',
-                message: questions[9],
+                message: questions[8],
             },
         ])
         .then((data) => {
