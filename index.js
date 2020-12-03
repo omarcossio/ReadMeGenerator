@@ -150,7 +150,7 @@ function writeBadge() {
 
 function createSections() {
     writeBadge();
-    table = "## Table of Contents \n * [Installation](#installation)\n * [Licenses](#licenses)\n * [Contributors](#Contributors)\n * [Tests](#tests)\n * [Questions](#questions)\n\n";
+    table = "## Table of Contents \n * [Installation](#installation)\n * [Usage](#usage)\n * [Licenses](#licenses)\n * [Contributors](#Contributors)\n * [Tests](#tests)\n * [Questions](#questions)\n\n";
     description = "## Description \n " + userDescription + "\n\n";
     installation = "## Installation\n" + userInstallation + "\n\n";
     licenses = "## Licenses\n" + userLicenses + "---" + licenseSummary + "\n\n";

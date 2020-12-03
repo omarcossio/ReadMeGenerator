@@ -6,6 +6,7 @@
 
 ## Table of Contents 
  * [Installation](#installation)
+ * [Usage](#usage)
  * [Licenses](#licenses)
  * [Contributors](#Contributors)
  * [Tests](#tests)
